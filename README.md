@@ -1,54 +1,223 @@
-# Project Description
+# Finvexis AI
 
-# Finvexis AI – A Smart Multi-agent Platform for Finance, Business & Sales
+Finvexis AI is a full-stack intelligence platform that combines Business, Finance, and Sales/HR workflows in a single product. The project includes a React frontend and a FastAPI backend with domain-specific agent and analysis modules.
 
-**Finvexis AI is the intelligent A.I.powered platform to manage finance, operations, sales & hiring all at one place for businesses.** It utilises Agentic AI system: A new approach of multiple specialised agents, which collaborate under the auspices of one central controller (orchestrator) to address business problems.
+## Executive Summary
 
-Today, most businesses use different tools for invoicing, tax calculation, KPI tracking, lead management, and hiring. Because these tools are separate, it becomes difficult to make fast and informed decisions. Finvexis AI solves this problem by combining everything into one intelligent system where AI agents collaborate to provide insights and automation.
+Finvexis AI is built to help teams move from raw operational data to actionable decisions. Instead of running disconnected tools across departments, the platform centralizes business strategy workflows, finance intelligence, and sales/hr assistance in one interface.
 
-The platform is divided into three main areas:
+The application follows a modular design:
+- A React frontend for user interaction and report consumption.
+- A FastAPI backend for orchestration, domain logic, and agent execution.
+- Domain-isolated modules so each function can evolve independently without breaking the entire system.
 
+## Project Overview
 
-# 1. Finance Agents
+Finvexis AI is designed to:
+- Centralize multi-domain intelligence workflows.
+- Provide an executive-facing UI for analysis and reporting.
+- Expose backend APIs for business strategy, finance automation, and sales/hr tooling.
 
-This section focuses on handling financial tasks and giving smart financial suggestions.It includes:
+The system is organized into:
+- `Frontend`: React + Vite application.
+- `backend`: FastAPI service and domain modules.
+- Root scripts for running frontend and backend together.
 
-• **Invoice Generator Agent** – This automatically generates invoice
+## Key Features
 
-• **Tax Calculator Agent** - Predicts taxes on income and expense.
+- Unified multi-domain intelligence across Business, Finance, and Sales/HR.
+- Modular backend routes and agents for domain-specific processing.
+- Frontend workspace architecture for reports, analysis, and guided workflows.
+- Shared design token system for consistent, maintainable UI styling.
+- Local-first development setup with independent frontend/backend runtime control.
+- Extensible structure that supports adding new agents, tools, and routes.
 
-• **Investment Risk Agent** – Estimates the risk involved in different financial choices
+## Repository Structure
 
-• **AI Financial Advisor** – Recommends actions to improve budget and financial health
+```text
+Finvexis/
+├── Frontend/                    # React application (UI, pages, components)
+│   ├── components/              # Reusable UI and feature components
+│   ├── pages/                   # Route-level pages
+│   ├── hooks/                   # React hooks
+│   ├── lib/                     # Frontend domain helpers and mock data
+│   ├── App.tsx                  # Top-level app routes and providers
+│   ├── index.css                # Global design system tokens and styles
+│   └── main.tsx                 # Frontend entry point
+├── backend/                     # FastAPI backend and domain engines
+│   ├── routes/                  # API route modules (business, finance, sales)
+│   ├── Business/                # Business intelligence agents and orchestration
+│   ├── finance/                 # Finance agents, engines, and utilities
+│   ├── Sales_HR/                # Sales and HR tools, parser, and utilities
+│   └── main.py                  # Backend entry point
+├── package.json                 # Root scripts to run full stack
+└── README.md                    # This file
+```
 
-The agents help business owners make better use of their money, lower the business costs and increase profits.
+## Architecture Overview
 
+### Frontend Layer
 
-# 2. Business Intelligence Agents
+The frontend handles:
+- User navigation and workspace rendering.
+- Form/input interactions and API trigger points.
+- Presentation of analysis outputs from backend services.
 
-This section explains why it’s good for companies to know more about how well they’re doing. It includes:
+Key files:
+- `Frontend/main.tsx`: application bootstrap.
+- `Frontend/App.tsx`: provider setup and route configuration.
+- `Frontend/pages/Index.tsx`: main landing and primary experience flow.
 
-• **Business KPI Tracker** – A tracker for business key performance indicators including revenue, profit and growth.
+### Backend Layer
 
-• **Market Research Analyst** – Analyzes competitors, market trends and industry patterns
+The backend handles:
+- Request validation and API routing.
+- Domain orchestration for business, finance, and sales/hr modules.
+- Execution of domain agents and utility pipelines.
 
-These agents convert raw data into actionable insights, enabling businesses to make more informed decisions.
+Key files:
+- `backend/main.py`: FastAPI app creation, middleware, and router registration.
+- `backend/routes/*.py`: domain API endpoints.
+- Domain modules in `backend/Business`, `backend/finance`, and `backend/Sales_HR`.
 
+### End-to-End Request Flow
 
-# 3. Sales & HR Agents
+1. User action is triggered from frontend workspace components.
+2. Frontend calls corresponding backend route.
+3. Route delegates processing to domain orchestrator/agent modules.
+4. Domain module computes response and returns structured output.
+5. Frontend renders the result in cards, summaries, or analysis sections.
 
-This part will also impact hiring and sales processes. It includes:
+## Tech Stack
 
-• **Lead Qualification Agent** – Ranks potential leads and pinpoint those that are best
+### Frontend
+- React
+- TypeScript
+- Vite
+- Tailwind-style tokenized CSS system
+- React Router
+- TanStack Query
 
-• **CRM Integration Agent** - Consolidates customer information to keep them up-to-date.
+### Backend
+- Python 3.10
+- FastAPI
+- Uvicorn
+- Modular domain orchestration for:
+  - Business intelligence
+  - Finance workflows
+  - Sales and HR operations
 
-• **Resume Screener** – Pre-screens job applicants.
+## Domain Modules
 
-• **HR Chat Assistant** : Answer regarding employee-related questions and policy-based inquiries
+### Business Intelligence
+- Strategy-oriented processing and orchestration.
+- Agent modules for forecasting, KPI interpretation, and business planning support.
 
-The Master Orchestrator Agent is at the heart of the system. This agent has the capability to grasp the user’s intention, mediate with which agents should be activated and co-communicate among them. Rather than acting in isolation, the agents share their responsibilities to complete VP tasks. For instance, when a user request business health analysis the system can consolidate tracking of KPIs, financial analysis and evaluation of risk to generate a comprehensive report.
+### Finance
+- Invoice, budgeting, auditing, and vendor intelligence workflows.
+- Engine-based structure for parsing, profiling, alerts, and finance narratives.
 
-It is achieved by making the use of large language models (LLMs), tool integration with structure, and systems memory to design scalable and intelligent workflows. It is designed to grow and support more business functions in the future.
+### Sales and HR
+- Tools for resume intelligence, job description analysis, lead/sales assistance, and policy support.
+- Utility modules for document handling and classification.
 
-Finvexis AI shows how Agentic AI can go beyond simple chatbots and become a powerful decision-support system. By combining automation, reasoning, and domain expertise, the platform helps businesses reduce manual work and make better, data-driven decisions.
+## Prerequisites
+
+- Node.js and npm
+- Python 3.10
+- Virtual environment located at `./venv` with backend dependencies installed
+- Optional `.env` file at repository root for backend configuration
+
+## Installation
+
+### 1) Install root dependencies
+
+```bash
+npm install
+```
+
+### 2) Install frontend dependencies
+
+```bash
+cd Frontend
+npm install
+```
+
+### 3) Ensure backend environment exists
+
+Backend is expected to run using:
+
+```bash
+./venv/bin/python3.10
+```
+
+Install backend dependencies in that environment if needed.
+
+## Running the Project
+
+From repository root:
+
+### Run frontend only
+
+```bash
+npm run dev:frontend
+```
+
+### Run backend only
+
+```bash
+npm run dev:backend
+```
+
+### Run full stack concurrently
+
+```bash
+npm run dev
+```
+
+## Backend API
+
+Base backend app is served from `backend/main.py`.
+
+Integrated route groups:
+- `business` domain endpoints
+- `finance` domain endpoints
+- `sales` domain endpoints
+
+Health/root response:
+- `GET /` returns a welcome message.
+
+## Configuration Notes
+
+- Backend reads environment variables from the root `.env` file.
+- Frontend dev server proxies API calls to backend (`http://127.0.0.1:8000`) via Vite config.
+- Keep secrets and environment-specific keys out of source files.
+
+## Frontend Notes
+
+- Main app shell and routes are defined in `Frontend/App.tsx`.
+- Landing experience is implemented in `Frontend/pages/Index.tsx` and `Frontend/components/landing`.
+- Global theme tokens and shared styles are defined in `Frontend/index.css`.
+
+## Development Guidelines
+
+- Keep feature logic domain-scoped under `backend/Business`, `backend/finance`, and `backend/Sales_HR`.
+- Keep UI concerns in `Frontend/components` and page composition in `Frontend/pages`.
+- Prefer reusable components and shared design tokens over one-off styling.
+- Keep route modules in `backend/routes` thin and delegate logic to domain modules.
+
+## Troubleshooting
+
+- If backend does not start, verify `./venv/bin/python3.10` exists and dependencies are installed.
+- If frontend fails, reinstall frontend dependencies in `Frontend`.
+- If API requests fail from frontend, verify backend is running on `http://127.0.0.1:8000` and Vite proxy is active.
+
+## Conclusion
+
+Finvexis AI provides a solid foundation for an integrated intelligence product where multiple business functions can operate from one coherent system. Its layered architecture, domain separation, and extensible module organization make it suitable for rapid iteration now and scalable growth later.
+
+As the project evolves, the current structure supports:
+- Adding new domain agents with minimal coupling.
+- Expanding APIs without disrupting existing workflows.
+- Improving frontend experiences while preserving design consistency.
+

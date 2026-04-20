@@ -1,0 +1,111 @@
+# -----------------------------
+# OS / Editor
+# -----------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# -----------------------------
+# Logs
+# -----------------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------
+# Environment / Secrets
+# -----------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# -----------------------------
+# Node / Frontend
+# -----------------------------
+node_modules/
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.vite/
+Frontend/.turbo/
+Frontend/.cache/
+Frontend/coverage/
+*.tsbuildinfo
+
+# -----------------------------
+# Test / Coverage outputs
+# -----------------------------
+coverage/
+test-results/
+playwright-report/
+
+# -----------------------------
+# Project-specific generated files
+# -----------------------------
+backend/**/generated/
+backend/**/tmp/
+backend/**/temp/
+backend/**/cache/
+
+# -----------------------------
+# Data files (do not push)
+# -----------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+*.parquet
+*.csv
+*.tsv
+*.jsonl
+*.ndjson
+*dummy_data*
+*dummy.data*
+finvexis.db
+**/__init__.py
+**/init.py
+
